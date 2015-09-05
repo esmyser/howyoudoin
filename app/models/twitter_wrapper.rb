@@ -1,4 +1,5 @@
 class TwitterWrapper
+  attr_reader :client
 
   def initialize(user)
      @user = user
