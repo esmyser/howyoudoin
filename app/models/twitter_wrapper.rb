@@ -29,7 +29,7 @@ class TwitterWrapper
       retry
     end
   end
-
+  
   def collect_with_max_id(collection=[], max_id=nil, &block)
     response = yield(max_id) if collection.empty? || collection.last[:created_at] > (Time.now - 1.hour)
     max_id = response.attrs[:statuses].last[:id] - 1 if response
