@@ -19,8 +19,9 @@ class TwitterWrapper
     begin
       collect_with_max_id do |max_id|
         options = {result_type: "recent", geocode: "40.7731295,-73.957734,5mi", locale: "en", count: 100, include_rts: false}
-        options[:max_id] = max_id unless max_id.nil?
-        @client.search(":)", options)
+        options[:max_id] = max_id if max_id.present?
+        # options[:since_id] = since_id if since_id.present?
+        @client.search("", options)
       end
       
     rescue Twitter::Error::TooManyRequests => error
@@ -29,10 +30,12 @@ class TwitterWrapper
     end
   end
 
-  def collect_with_max_id(collection=[], max_id=nil, since_id=nil, &block)
-    response = yield(max_id) if collection.length <= 1000
+  def collect_with_max_id(collection=[], max_id=nil, &block)
+    response = yield(max_id) if collection.empty? || collection.last[:created_at] > (Time.now - 1.hour)
+    max_id = response.attrs[:statuses].last[:id] - 1 if response
+    # since_id = response.attrs[:statuses].first[:id]
     collection += response.attrs[:statuses] if response
-    response.nil? || response.attrs[:statuses].empty? ? collection.flatten : collect_with_max_id(collection, response.attrs[:statuses].last[:id] - 1, &block)
+    response.nil? || response.attrs[:statuses].empty? ? collection.flatten : collect_with_max_id(collection, max_id, &block)
   end
 
 
