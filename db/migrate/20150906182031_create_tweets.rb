@@ -6,7 +6,7 @@ class CreateTweets < ActiveRecord::Migration
       t.datetime :tweet_time
       t.integer :tweet_id
       t.integer :user_id
-      t.integer :anger
+      t.string :anger
 
       t.timestamps null: false
     end
