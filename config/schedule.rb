@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do 
-  runner "TwitterWrapper.nyc_tweets"
+  runner "NycSentiment.save_hour_tweets"
 end

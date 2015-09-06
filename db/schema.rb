@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 20150906182031) do
     t.string   "handle"
     t.string   "content"
     t.datetime "tweet_time"
-    t.integer  "tweet_id"
-    t.integer  "user_id"
+    t.string   "tweet_id"
+    t.string   "user_id"
     t.string   "anger"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
