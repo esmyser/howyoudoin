@@ -29,7 +29,7 @@ class TwitterWrapper
     end
   end
 
-  def collect_with_max_id(collection=[], max_id=nil, &block)
+  def collect_with_max_id(collection=[], max_id=nil, since_id=nil, &block)
     response = yield(max_id) if collection.length <= 1000
     collection += response.attrs[:statuses] if response
     response.nil? || response.attrs[:statuses].empty? ? collection.flatten : collect_with_max_id(collection, response.attrs[:statuses].last[:id] - 1, &block)
