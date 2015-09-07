@@ -15,11 +15,13 @@ ActiveRecord::Schema.define(version: 20150906182031) do
 
   create_table "tweets", force: :cascade do |t|
     t.string   "handle"
-    t.string   "content"
+    t.text     "content"
     t.datetime "tweet_time"
     t.string   "tweet_id"
     t.string   "user_id"
     t.string   "anger"
+    t.float    "lat"
+    t.float    "lng"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

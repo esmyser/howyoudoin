@@ -5,7 +5,7 @@
 
 # Example:
 #
-# set :output, "/path/to/my/cron_log.log"
+set :output, "./log/cron_log.log"
 #
 # every 2.hours do
 #   command "/usr/bin/some_great_command"
@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every :hour do 
-  runner "NycSentiment.save_hour_tweets"
+  runner "NycSentiment.new"
 end
