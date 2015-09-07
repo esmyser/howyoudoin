@@ -3,7 +3,8 @@ class NycSentiment
   attr_accessor :hour_tweets, :sentiment
 
   def initialize
-    @hour_tweets = TwitterWrapper.new('esmyser').nyc_tweets
+    nyc = {result_type: "recent", geocode: "40.7731295,-73.957734,5mi", locale: "en", count: 100, include_rts: false}
+    @hour_tweets = TwitterWrapper.new('esmyser').last_hour_tweets(nyc)
     @sentiment = sentiment
     save_hour_tweets
   end
@@ -16,11 +17,11 @@ class NycSentiment
   def save_hour_tweets
     @hour_tweets.each do |tweet|
       t = Tweet.new
-      hydrate_tweet(t, tweet) if good_tweet(t, tweet)
+      hydrate_tweet(t, tweet) if useable_tweet(t, tweet)
     end
   end
 
-  def good_tweet(t, tweet)
+  def useable_tweet(t, tweet)
     t.anger = @sentiment.get_sentiment(tweet[:text])
     tweet[:coordinates].present? && (t.anger == "positive" || t.anger == "negative")
   end
