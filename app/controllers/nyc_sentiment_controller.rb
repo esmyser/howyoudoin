@@ -7,4 +7,7 @@ class NycSentimentController < ApplicationController
     gon.angryTweets = @angry_tweets
   end
 
+  def show
+  end
+
 end
