@@ -1,3 +1,5 @@
+google.maps.event.addDomListener(window, 'load', initialize);
+
 function initialize() {
   var happyGradient = [
     'rgba(0, 255, 255, 0)',
@@ -31,26 +33,11 @@ function initialize() {
     'rgba(255, 50, 0, 1)',
     'rgba(255, 25, 0, 1)',
     'rgba(255, 0, 0, 1)'
-  ]
+    ]
 
-  map = new Map;
-  heatMap(map.map, gon.happyTweets, happyGradient);
-  heatMap(map.map, gon.angryTweets, angryGradient);
-
-
-  // $("#slider").slider({
-  //   value: 12,
-  //   min: 0,
-  //   max: 23,
-  //   step: 0.1,
-  //   slide: function(event, ui) {
-  //     if (parseInt($("#hour").val()) !== Math.round(ui.value)) {
-  //       setHour(ui.value);
-  //     }
-  //   }
-  // });
-
-  // $("#hour").val($("#slider").slider("value") + ':00');
+  new Map;
+  heatMap(map, gon.happyTweets, happyGradient);
+  heatMap(map, gon.angryTweets, angryGradient);
 }
 
 function Map() {
@@ -67,7 +54,8 @@ function Map() {
     center: new google.maps.LatLng(40.7731295,-73.957734),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  this.map = new google.maps.Map(mapCanvas, mapOptions);
+
+  map = new google.maps.Map(mapCanvas, mapOptions);
 }
 
 function heatMap(map, tweets, gradient) {
@@ -89,20 +77,3 @@ function heatMap(map, tweets, gradient) {
 
   heatmap.setMap(map);
 }
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-
-// function toggleHeatmap() {
-//   heatmap.setMap(heatmap.getMap() ? null : map);
-// }
-
-// function setHour(hour) {
-//   var tmpHeatMap = heatmap;
-
-//   hour = Math.round(hour);
-
-//   $("#hour").val(hour + ":00");
-
-//   setTimeout(function(){tmpHeatMap.setMap(null);}, 80);
-// }
