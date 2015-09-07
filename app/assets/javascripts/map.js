@@ -32,6 +32,25 @@ function initialize() {
       radius: 25,
     });
 
+  var happyGradient = [
+    'rgba(0, 255, 255, 0)',
+    'rgba(0, 255, 255, 1)',
+    'rgba(0, 225, 255, 1)',
+    'rgba(0, 200, 255, 1)',
+    'rgba(0, 175, 255, 1)',
+    'rgba(0, 160, 255, 1)',
+    'rgba(0, 145, 223, 1)',
+    'rgba(0, 125, 191, 1)',
+    'rgba(0, 110, 255, 1)',
+    'rgba(0, 100, 255, 1)',
+    'rgba(0, 75, 255, 1)',
+    'rgba(0, 50, 255, 1)',
+    'rgba(0, 25, 255, 1)',
+    'rgba(0, 0, 255, 1)'
+    ]
+
+  heatmap.set('gradient', happyGradient);
+
   heatmap.setMap(map);
 
   angryPointArray = new google.maps.MVCArray(angryData);
@@ -41,24 +60,24 @@ function initialize() {
       radius: 25,
     });
 
-  var gradient = [
-    'rgba(0, 255, 255, 0)',
-    'rgba(0, 255, 255, 1)',
-    'rgba(0, 191, 255, 1)',
-    'rgba(0, 127, 255, 1)',
-    'rgba(0, 63, 255, 1)',
-    'rgba(0, 0, 255, 1)',
-    'rgba(0, 0, 223, 1)',
-    'rgba(0, 0, 191, 1)',
-    'rgba(0, 0, 159, 1)',
-    'rgba(0, 0, 127, 1)',
-    'rgba(63, 0, 91, 1)',
-    'rgba(127, 0, 63, 1)',
-    'rgba(191, 0, 31, 1)',
+  var angryGradient = [
+    'rgba(255, 255, 0, 0)',
+    'rgba(255, 255, 0, 1)',
+    'rgba(255, 225, 0, 1)',
+    'rgba(255, 200, 0, 1)',
+    'rgba(255, 175, 0, 1)',
+    'rgba(255, 160, 0, 1)',
+    'rgba(255, 145, 0, 1)',
+    'rgba(255, 125, 0, 1)',
+    'rgba(255, 110, 0, 1)',
+    'rgba(255, 100, 0, 1)',
+    'rgba(255, 75, 0, 1)',
+    'rgba(255, 50, 0, 1)',
+    'rgba(255, 25, 0, 1)',
     'rgba(255, 0, 0, 1)'
   ]
 
-  neatmap.set('gradient', gradient);
+  neatmap.set('gradient', angryGradient);
 
   neatmap.setMap(map)
 
