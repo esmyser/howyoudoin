@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'gon'
+gem 'sentimental'
 gem 'whenever', :require => false
 gem 'pry'
 gem 'rspec'

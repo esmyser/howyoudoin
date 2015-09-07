@@ -63,6 +63,11 @@ GEM
       thor (~> 0.14)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
     http (0.6.4)
       http_parser.rb (~> 0.6.0)
     http_parser.rb (0.6.0)
@@ -123,6 +128,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    request_store (1.2.0)
     rspec (3.3.0)
       rspec-core (~> 3.3.0)
       rspec-expectations (~> 3.3.0)
@@ -146,6 +152,7 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    sentimental (1.0.3)
     simple_oauth (0.3.1)
     slop (3.6.0)
     spring (1.3.6)
@@ -192,6 +199,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   figaro
+  gon
   jbuilder (~> 2.0)
   jquery-rails
   pry
@@ -199,6 +207,7 @@ DEPENDENCIES
   rspec
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  sentimental
   spring
   sqlite3
   turbolinks
