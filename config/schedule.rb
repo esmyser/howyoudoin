@@ -19,7 +19,7 @@ set :output, "./log/cron_log.log"
 
 # Learn more: http://github.com/javan/whenever
 
-every :hour do 
-  runner "NycSentiment.new.save_tweets"
+every 1.hour do 
+  runner "NycSentiment.new.save_tweets", :environment => 'development'
 end
 

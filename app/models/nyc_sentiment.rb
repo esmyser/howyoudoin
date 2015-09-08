@@ -22,8 +22,10 @@ class NycSentiment
   def save_tweets
     tweets.each do |tweet|
       t = Tweet.new
-      hydrate_tweet(t, tweet) if useable_tweet(t, tweet)
-      t.save
+      if useable_tweet(t, tweet)
+        hydrate_tweet(t, tweet)
+        t.save
+      end
     end
   end
 
@@ -40,6 +42,7 @@ class NycSentiment
     t.tweet_id = tweet[:id]
     t.lat = tweet[:coordinates][:coordinates].first
     t.lng = tweet[:coordinates][:coordinates].last
+
   end  
 
 end
