@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_12factor'
 gem 'pg'
 gem 'gon'
 gem 'sentimental'
